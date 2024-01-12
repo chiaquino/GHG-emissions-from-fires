@@ -1,8 +1,4 @@
-### Retrieve GHG emissions from forest fires
-
-_Authors_: Chiara Aquino, Manuela Balzarolo, Cinzia Chiriacò
-<br>
-_Date_: 12 January 2024
+# Calculate GHG emissions from forest fires
 
 This script provides the functions used to calculate GHG emissions from forest fires. GHG emissions are calculated using the model from in Chiriacò et al.(2013):
 
