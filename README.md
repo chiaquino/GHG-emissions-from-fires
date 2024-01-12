@@ -1,5 +1,8 @@
 # Calculate GHG emissions from forest fires
 
+## Credit
+
+
 This script provides the functions used to calculate GHG emissions from forest fires. GHG emissions are calculated using the model from in Chiriacò et al.(2013):
 
     GHG emissions = A x B x C x D x 10-6 
