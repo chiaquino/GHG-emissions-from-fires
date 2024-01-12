@@ -15,7 +15,7 @@ where
 <br>
 GHG emissions = amount of GHGs released as a result of fire [kgton of GHG]; 
 <br>
-A = burnt area [ha], provided by input data (EFFIS) 
+A = burnt area [ha], provided by input data
 <br>
 B = mass of available fuels, in [kg dry matter ha-1]
 <br>
