@@ -1,0 +1,28 @@
+﻿BOVIO_CLASS,BOVIO_NAME,EFFIS_CLASS
+A,Maple-ash forests,BROADLEA
+A,Hygrophilous riparian forests,TRANSIT
+A,Lowland oak high forests,BROADLEA
+A,Beech high forests,BROADLEA
+A,Birch high forests,BROADLEA
+B,Evergreen oak high forests,SCLEROPH
+B,Downy oak and Turkey oak high forests,BROADLEA
+C,Larch and larch-arolla pine forests,CONIFER
+C,Spruce forests,CONIFER
+C,Fir forests,CONIFER
+C,Mixed fir and spruce forests,CONIFER
+C,Mountain Scots pine forests,CONIFER
+C,Mountain black pine forests,CONIFER
+D,Hilly and flatlands Scots pine forests,CONIFER
+D,Other conifer forests,CONIFER
+D,Mediterranean pine forests,CONIFER
+D,Calabrian and palebark pine forests and hilly black pine forests,CONIFER
+E,Beech coppices,BROADLEA
+E,Chestnut coppices,BROADLEA
+E,Common hornbeam coppices,BROADLEA
+F,Sessile oak and downy oak coppices,BROADLEA
+F,European hophornbeam coppices,BROADLEA
+F,Evergreen oak coppices,SCLEROPH
+F,"Turkey, Hungarian, Valonia and Macedonian oak coppices",BROADLEA
+G,Mediterranean maquis,SCLEROPH
+H,Broadleaved dominated forest stand with a mean height < 3.5m,BROADLEA
+I,Conifer dominated stand with a mean height <3.5m,CONIFER
