@@ -1,11 +1,3 @@
-"""
-@Author: Chiara Aquino
-@Date : 02 February 2024
-
-Functions to calculate GHG emissions using model from Chiriacò et al.(2013)
-
-"""
-
 def import_data(dataname,path_to_data_location,**kwargs):
 
     """
@@ -78,7 +70,7 @@ def get_landcover_classes(landcover,path_to_landcover_legend,language):
 
     Parameters:
     - landcover (string): name of landcover type to use (e.g., if Corine or EFFIS)
-    - path_to_data_location (string) : location of landcover legend table
+    - path_to_landcover_legend (string) : location of landcover legend table
     - language (string) : if 'English' or 'Italian'
 
     Returns:
@@ -384,7 +376,7 @@ def get_total_annual_GHG_emissions(A,B,C,path_to_emission_factors_table,forest_c
     - B (pd.DataFrame) : pre disturbance biomass for each vegetation type, as retrived by function get_biomass()
     - C (pd.DataFrame) : combustion factor for each forest type, as retrieved by function get_combustion_factor()
     - path_to_emission_factors_table (str) : location of table containing GHG emission values (as from IPCC2003)
-    - forest_types (list of str) : forest classes 
+    - forest_types (list of str) : forest classes  
 
     Returns:
     - Float: total_emissions_co2eq (total GHG emissions)
@@ -441,3 +433,129 @@ def get_total_annual_GHG_emissions(A,B,C,path_to_emission_factors_table,forest_c
     total_emissions_co2eq = emissions_by_forest_type_co2eq.sum()
     
     return total_emissions_co2eq, emissions_by_forest_type_co2eq
+
+def plot_burnt_area_and_clc18_classes(path_to_landcover_legend_table,language,df_burnt_area_shape,
+                    ghg_emissions_by_forest_type,path_to_burnt_shape_output=None,path_to_ghg_in_lc_output=None):
+
+    
+    """
+
+    This function creates a plot of the burnt area and CLC18 landcover classes within it
+    
+    Parameters: 
+    - path_to_landcover_legend_table (str) : location of landcover legend table
+    - language (string) : if 'English' or 'Italian' 
+    - df_burnt_area_shape (pd.DataFrame): input DataFrame containing burnt area for the fire event
+    - ghg_emissions_by_forest_type (pd.DataFrame) : GHG emissions by each forest type, as outputted by get_total_annual_GHG_emissions() function
+    - path_to_burnt_shape_output : path to location where to save shapefile of burnt shape (Default is None)
+    - path_to_ghg_in_lc_output: path to location where to save shapefile of land cover classes with GHG emissions (Default is None)
+    
+
+    Returns:
+    - None
+    """
+    
+    from matplotlib.patches import Patch
+
+    #get forest classes, labels and colors
+    forest_classes, forest_labels, forest_colors = get_landcover_classes(landcover,path_to_landcover_legend_table,language)
+
+    
+    #get GHG emissions for each landcover type as outputted by the function get_total_annual_GHG_emissions()
+    # and reorganise table
+    ghg_by_forest_type = pd.DataFrame(ghg_emissions_by_forest_type, columns=["GHG_CO2eq"])
+    ghg_by_forest_type.index.name = landcover
+    ghg_by_forest_type = ghg_by_forest_type.reset_index()
+
+    # create dataframe for plotting
+    df_plot = pd.DataFrame(
+        {'lc_class': forest_classes,
+         'lc_label': forest_labels,
+         'lc_color': forest_colors
+        })
+
+    #get landcover classes within burnt shape
+    lc_shape = get_clc18_forest_types_in_burnt_shape(clc18_shapefile, df_burnt_area_shape, forest_classes,crs)
+    #group all the shapefiles with the same landcover class
+    lc = lc_shape.dissolve(by="CLC18", aggfunc='sum')
+    # merge GHG results with the landcover shapefile and table
+    ghg_in_lc = pd.merge(lc,ghg_by_forest_type, on="CLC18", how="inner") 
+    # merge this table with table that has name of classes, labels and color palettes
+    ghg_in_lc_plot = pd.merge(ghg_in_lc,df_plot, left_on="CLC18",right_on="lc_class", how="inner")
+
+
+    #plot image
+    fig, axs = plt.subplots(figsize=(8, 5))
+    #plot burnt shape
+    burnt_shape.plot(ax=axs, facecolor='none', edgecolor='red', linewidth=1)  
+    #plot land cover classes
+    ghg_in_lc_plot.plot(ax=axs, label=ghg_in_lc_plot.lc_label, color=ghg_in_lc_plot.lc_color,legend=True)
+
+    shapes = []
+    lab =[]
+    
+    #Create legend patches
+    for color, label, fclass in zip(ghg_in_lc_plot.lc_color,ghg_in_lc_plot.lc_label, ghg_in_lc_plot.lc_class):
+         p = Patch(facecolor=color, edgecolor='gray',
+                             label=fclass+" - " + label)
+         shapes.append(p)
+         lab.append(fclass+" - " + label)
+        
+    #create legend, by first getting the already present handles, labels
+    handles, labels = plt.gca().get_legend_handles_labels()
+    
+    #and then adding the new ones
+    handles.extend(shapes)
+    labels.extend(lab)
+    
+    by_label = dict(zip(labels, handles))
+
+    #plot legend
+    axs.legend(by_label.values(), by_label.keys(), framealpha=1.,fontsize="medium",bbox_to_anchor=(0.5, -0.2), loc='center', ncol=1)
+
+    plt.show()
+
+    #save files to
+    if path_to_burnt_shape_output:
+        burnt_shape.to_file(path_to_burnt_shape_output)
+        print(f"Burnt area shapefile saved to '{path_to_burnt_shape_output}'")
+    if path_to_ghg_in_lc_output:
+        ghg_in_lc_plot.to_file(path_to_ghg_in_lc_output)
+        print(f"GHG per forest type shapefile save to '{path_to_ghg_in_lc_output}'")
+
+def save_ghg_emissions(ghg, path_to_output_table,**kwargs):
+    """
+    Save GHG emission data to optional columns,
+    ** if specified output file already exists do not overwrite, but save result in a new line **
+    This is to ensure that data for multiple years is saved in the same file
+
+    Parameters:
+    - ghg (pd.Dataframe): Total GHG emissions from get_total_annual_GHG_emissions()
+    - path_to_output_table : File path to save the DataFrame as a CSV file. Default is None.
+    - **kwargs (optional): Variable number of additional arguments representing column names.
+
+
+    Returns:
+        None
+    """
+    import os
+
+     # If file exists, load existing DataFrame, else create an empty DataFrame
+    if os.path.exists(path_to_output_table):
+        existing_df = pd.read_csv(path_to_output_table)
+    else:
+        existing_df = pd.DataFrame()
+
+    data = [YEAR,COUNTRY,REGION,PROVINCE,COMMUNE,ghg]
+    
+    # Combine data with optional additional columns
+    columns = ["YEAR","COUNTRY","REGION","PROVINCE","COMMUNE","TOTAL_GHG_CO2EQ"]
+    #columns = list(args)
+    
+    df = pd.DataFrame([data],columns=columns)
+    # Append new data to existing DataFrame
+    combined_df = pd.concat([df,existing_df], ignore_index=True)
+    
+    # Save DataFrame to CSV if save_to argument is provided
+    combined_df.to_csv(path_to_output_table, index=False)
+    print(f"DataFrame saved to '{path_to_output_table}'")
