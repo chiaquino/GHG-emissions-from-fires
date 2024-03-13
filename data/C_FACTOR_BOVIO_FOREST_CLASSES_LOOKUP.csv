@@ -1,57 +1,57 @@
-﻿BOVIO_CLASS,BOVIO_NAME,EFFIS_CLASS,CLC18_NAME,CLC18_CLASS
-A,Maple-ash forests,BROADLEA,Boschi a latifoglie,311
-A,Hygrophilous riparian forests,TRANSIT,Boschi a prevalenza di specie igrofile,3116
-A,Lowland oak high forests,BROADLEA,Boschi a prev. di querce e alte lat. semp. +---,3111
-A,Lowland oak high forests,BROADLEA,Boschi a prev. di querce caducifoglie,3112
-A,Beech high forests,BROADLEA,Boschi a prevalenza di faggio,3115
-A,Birch high forests,BROADLEA,Boschi a latifoglie,311
-B,Evergreen oak high forests,SCLEROPH,Boschi a prev. di querce e alte lat. semp.,3111
-B,Downy oak and Turkey oak high forests,BROADLEA,Boschi a prev. di querce caducifoglie,3112
-C,Larch and larch-arolla pine forests,CONIFER,Boschi a prevalenza di larice e/o pino cembro,3124
-C,Spruce forests,CONIFER,Boschi a prev. di abeti,3123
-C,Fir forests,CONIFER,Boschi a prev. di abeti,3123
-C,Mixed fir and spruce forests,CONIFER,Boschi a prev. di abeti,3123
-C,Mountain Scots pine forests,CONIFER,Boschi a prevalenza di pini oro-mediterranei e montani,3122
-C,Mountain black pine forests,CONIFER,Boschi a prevalenza di pini oro-mediterranei e montani,3122
-D,Hilly and flatlands Scots pine forests,CONIFER,Boschi a prevalenza di pini oro-mediterranei e montani,3122
-D,Other conifer forests,CONIFER,Boschi di conifere,3125
-D,Mediterranean pine forests,CONIFER,Boschi a prev. di pini mediterranei e cipressi,3121
-D,Calabrian and palebark pine forests and hilly black pine forests,CONIFER,Boschi a prevalenza di pini oro-mediterranei e montani,3122
-E,Beech coppices,BROADLEA,Boschi a prevalenza di faggio,3115
-E,Chestnut coppices,BROADLEA,Boschi a prevalenza di castagno,3114
-E,Common hornbeam coppices,BROADLEA,Boschi misti a prev. di altre latifoglie autoctone,3113
-F,Sessile oak and downy oak coppices,BROADLEA,Boschi a prev. di querce caducifoglie,3112
-F,European hophornbeam coppices,BROADLEA,Boschi misti a prev. di altre latifoglie autoctone,3113
-F,Evergreen oak coppices,SCLEROPH,Boschi a prev. di querce e alte lat. semp.,3111
-F,"Turkey, Hungarian, Valonia and Macedonian oak coppices",BROADLEA,Boschi a prev. di querce caducifoglie,3112
-G,Mediterranean maquis,SCLEROPH,Macchia alta,3231
-H,Broadleaved dominated forest stand with a mean height < 3.5m,BROADLEA,Boschi a latifoglie,311
-I,Conifer dominated stand with a mean height <3.5m,CONIFER,Boschi di conifere,312
-A,,MIXED,Boschi misti,313
-B,,MIXED,Boschi misti,313
-C,,MIXED,Boschi misti,313
-D,,MIXED,Boschi misti,313
-E,,MIXED,Boschi misti,313
-F,,MIXED,Boschi misti,313
-G,,MIXED,Boschi misti,313
-H,,MIXED,Boschi misti,313
-I,,MIXED,Boschi misti,313
-A,,BROADLEA,Boschi a latifoglie,311
-B,,BROADLEA,Boschi a latifoglie,311
-E,,BROADLEA,Boschi a latifoglie,311
-F,,BROADLEA,Boschi a latifoglie,311
-H,,BROADLEA,Boschi a latifoglie,311
-C,,CONIFER,Boschi di conifere,312
-D,,CONIFER,Boschi di conifere,312
-I,,CONIFER,Boschi di conifere,312
-A,,BROADLEA,Boschi misti a prevalenza di latifoglie,3131
-B,,BROADLEA,Boschi misti a prevalenza di latifoglie,3131
-E,,BROADLEA,Boschi misti a prevalenza di latifoglie,3131
-F,,BROADLEA,Boschi misti a prevalenza di latifoglie,3131
-H,,BROADLEA,Boschi misti a prevalenza di latifoglie,3131
-C,,CONIFER,Boschi misti a prevalenza di conifere,3132
-D,,CONIFER,Boschi misti a prevalenza di conifere,3132
-I,,CONIFER,Boschi misti a prevalenza di conifere,3132
-G,,SCLEROPH,Vegetazione sclerofila,323
-F,,SCLEROPH,Vegetazione sclerofila,323
-B,,SCLEROPH,Vegetazione sclerofila,323
+﻿BOVIO_CLASS,BOVIO_NAME,EFFIS_CLASS,CLC18_NAME,CLC18_CLASS,CUFAA_CLASS
+A,Maple-ash forests,BROADLEA,Boschi a latifoglie,311,BOSCO
+A,Hygrophilous riparian forests,TRANSIT,Boschi a prevalenza di specie igrofile,3116,BOSCO
+A,Lowland oak high forests,BROADLEA,Boschi a prev. di querce e alte lat. semp. +---,3111,BOSCO
+A,Lowland oak high forests,BROADLEA,Boschi a prev. di querce caducifoglie,3112,BOSCO
+A,Beech high forests,BROADLEA,Boschi a prevalenza di faggio,3115,BOSCO
+A,Birch high forests,BROADLEA,Boschi a latifoglie,311,BOSCO
+B,Evergreen oak high forests,SCLEROPH,Boschi a prev. di querce e alte lat. semp.,3111,BOSCO
+B,Downy oak and Turkey oak high forests,BROADLEA,Boschi a prev. di querce caducifoglie,3112,BOSCO
+C,Larch and larch-arolla pine forests,CONIFER,Boschi a prevalenza di larice e/o pino cembro,3124,BOSCO
+C,Spruce forests,CONIFER,Boschi a prev. di abeti,3123,BOSCO
+C,Fir forests,CONIFER,Boschi a prev. di abeti,3123,BOSCO
+C,Mixed fir and spruce forests,CONIFER,Boschi a prev. di abeti,3123,BOSCO
+C,Mountain Scots pine forests,CONIFER,Boschi a prevalenza di pini oro-mediterranei e montani,3122,BOSCO
+C,Mountain black pine forests,CONIFER,Boschi a prevalenza di pini oro-mediterranei e montani,3122,BOSCO
+D,Hilly and flatlands Scots pine forests,CONIFER,Boschi a prevalenza di pini oro-mediterranei e montani,3122,BOSCO
+D,Other conifer forests,CONIFER,Boschi di conifere,3125,BOSCO
+D,Mediterranean pine forests,CONIFER,Boschi a prev. di pini mediterranei e cipressi,3121,BOSCO
+D,Calabrian and palebark pine forests and hilly black pine forests,CONIFER,Boschi a prevalenza di pini oro-mediterranei e montani,3122,BOSCO
+E,Beech coppices,BROADLEA,Boschi a prevalenza di faggio,3115,BOSCO
+E,Chestnut coppices,BROADLEA,Boschi a prevalenza di castagno,3114,BOSCO
+E,Common hornbeam coppices,BROADLEA,Boschi misti a prev. di altre latifoglie autoctone,3113,BOSCO
+F,Sessile oak and downy oak coppices,BROADLEA,Boschi a prev. di querce caducifoglie,3112,BOSCO
+F,European hophornbeam coppices,BROADLEA,Boschi misti a prev. di altre latifoglie autoctone,3113,BOSCO
+F,Evergreen oak coppices,SCLEROPH,Boschi a prev. di querce e alte lat. semp.,3111,BOSCO
+F,"Turkey, Hungarian, Valonia and Macedonian oak coppices",BROADLEA,Boschi a prev. di querce caducifoglie,3112,BOSCO
+G,Mediterranean maquis,SCLEROPH,Macchia alta,3231,BOSCO
+H,Broadleaved dominated forest stand with a mean height < 3.5m,BROADLEA,Boschi a latifoglie,311,BOSCO
+I,Conifer dominated stand with a mean height <3.5m,CONIFER,Boschi di conifere,312,BOSCO
+A,,MIXED,Boschi misti,313,BOSCO
+B,,MIXED,Boschi misti,313,BOSCO
+C,,MIXED,Boschi misti,313,BOSCO
+D,,MIXED,Boschi misti,313,BOSCO
+E,,MIXED,Boschi misti,313,BOSCO
+F,,MIXED,Boschi misti,313,BOSCO
+G,,MIXED,Boschi misti,313,BOSCO
+H,,MIXED,Boschi misti,313,BOSCO
+I,,MIXED,Boschi misti,313,BOSCO
+A,,BROADLEA,Boschi a latifoglie,311,BOSCO
+B,,BROADLEA,Boschi a latifoglie,311,BOSCO
+E,,BROADLEA,Boschi a latifoglie,311,BOSCO
+F,,BROADLEA,Boschi a latifoglie,311,BOSCO
+H,,BROADLEA,Boschi a latifoglie,311,BOSCO
+C,,CONIFER,Boschi di conifere,312,BOSCO
+D,,CONIFER,Boschi di conifere,312,BOSCO
+I,,CONIFER,Boschi di conifere,312,BOSCO
+A,,BROADLEA,Boschi misti a prevalenza di latifoglie,3131,BOSCO
+B,,BROADLEA,Boschi misti a prevalenza di latifoglie,3131,BOSCO
+E,,BROADLEA,Boschi misti a prevalenza di latifoglie,3131,BOSCO
+F,,BROADLEA,Boschi misti a prevalenza di latifoglie,3131,BOSCO
+H,,BROADLEA,Boschi misti a prevalenza di latifoglie,3131,BOSCO
+C,,CONIFER,Boschi misti a prevalenza di conifere,3132,BOSCO
+D,,CONIFER,Boschi misti a prevalenza di conifere,3132,BOSCO
+I,,CONIFER,Boschi misti a prevalenza di conifere,3132,BOSCO
+G,,SCLEROPH,Vegetazione sclerofila,323,BOSCO
+F,,SCLEROPH,Vegetazione sclerofila,323,BOSCO
+B,,SCLEROPH,Vegetazione sclerofila,323,BOSCO
