@@ -1,4 +1,7 @@
 def import_data(path_to_data_location,path_to_italian_regions_shapefile,crs,region=None,**kwargs):
+    
+    import geopandas
+    import pandas as pd
 
     """
     Retrieve burnt area polygon from the shapefile and filter it based on selected columns and values.
@@ -69,6 +72,8 @@ def get_landcover_classes(landcover,path_to_landcover_legend,language):
     - names (list of str) 
     - colors (list of int) 
     """
+    import geopandas
+    import pandas as pd
 
     # get all classes, labels and associated colors
     landcover_legend = pd.read_csv(path_to_landcover_legend)
@@ -100,6 +105,8 @@ def get_clc18_forest_types_in_burnt_shape(path_to_clc18_shapefile, df_burnt_area
     Returns:
     - CLC18_burnt_area : Filtered geopandas DataFrame with corine land cover classes in burnt area
     """
+
+    import geopandas
 
     # Read corine shapefile
     CLC18 = geopandas.read_file(path_to_clc18_shapefile)
@@ -244,6 +251,9 @@ def get_biomass(path_to_lookup_table, path_to_biomass_table, landcover, region=N
     Returns:
     - pd.DataFrame: Processed DataFrame with average biomass values and standard deviation per selected region per vegetation class
     """
+    import pandas as pd
+    import numpy as np
+    
     lookup = pd.read_csv(path_to_lookup_table)
     biomass = pd.read_csv(path_to_biomass_table)
 
@@ -423,6 +433,8 @@ def get_total_ghg_emissions(A,B,C,D,landcover):
     - pd.Dataframe: ABCD (GHG emissions by forest class)
 
     """
+    import pandas as pd
+    import numpy as np
     
     #Merge A,B,C and D DataFrames on the 'landcover' column
     ABC = A.merge(B, on=landcover, how='inner').merge(C, on=landcover,how='inner') 
@@ -489,6 +501,7 @@ def plot_burnt_area_and_forest_classes(path_to_landcover_legend_table,path_to_la
     Returns:
     - None
     """
+    from matplotlib.patches import Patch
     
     #get forest classes, labels and colors
     forest_classes, forest_labels, forest_colors = get_landcover_classes(landcover,path_to_landcover_legend_table,language)
